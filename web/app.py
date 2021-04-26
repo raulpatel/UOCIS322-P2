@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "UOCIS docker demo!\n"
+    return "UOCIS docker test!\n"
 
 @app.route("/hello")
 def new():
@@ -24,14 +24,14 @@ def page_render(name):
             pass
     except FileNotFoundError:
         abort(404)
-    return render_template("/../{}".format(name))
+    return render_template(name)
 
 @app.errorhandler(404)
-def error_404(404):
+def error_404():
     return render_template("404.html")
 
 @app.errorhandler(403)
-def error_404(403):
+def error_404():
     return render_template("403.html")
 
 if __name__ == "__main__":
